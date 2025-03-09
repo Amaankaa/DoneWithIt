@@ -20,12 +20,13 @@ import WelcomeScreeen from './app/screens/WelcomeScreeen';
 
 import Card from './app/components/Card';
 import ListingDetailsScreen from './app/components/ListingDetailsScreen';
+import ViewImageScreen from './app/screens/ViewImageScreen';
 
 export default function App() {
 
   return (
 
-    <ListingDetailsScreen />
+    <ViewImageScreen />
 
   );
 }
