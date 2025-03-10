@@ -33,7 +33,8 @@ const styles = StyleSheet.create({
     },
 
     title: {
-        marginBottom: 7
+        marginBottom: 7,
+        color: 'black'
     },
 
     subTitle: {
