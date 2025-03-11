@@ -1,12 +1,20 @@
 import React from 'react';
-import { Image, StyleSheet, TouchableHighlight, TouchableOpacity, View } from 'react-native';
+import { Image, StyleSheet, TouchableHighlight, View } from 'react-native';
 import AppText from './AppText';
 import colors from '../config/colors';
 import {GestureHandlerRootView} from 'react-native-gesture-handler'
 
 import { Swipeable } from 'react-native-gesture-handler'
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-function ListItem({title, subTitle, image, IconComponent, onPress, renderRightActions}) {
+function ListItem({
+    title, 
+    subTitle, 
+    image, 
+    IconComponent, 
+    onPress, 
+    renderRightActions
+}) {
     return (
         <GestureHandlerRootView>
             <Swipeable renderRightActions={renderRightActions}>
@@ -17,9 +25,10 @@ function ListItem({title, subTitle, image, IconComponent, onPress, renderRightAc
                         {IconComponent}
                         {image && <Image style = {styles.image} source={image}/>}
                         <View style = {styles.detailsContainer}>
-                            <AppText style={styles.title}>{title}</AppText>
-                            {subTitle && <AppText style={styles.subTitle}>{subTitle}</AppText>}
+                            <AppText style={styles.title} numberOfLines = {1}>{title}</AppText>
+                            {subTitle && <AppText style={styles.subTitle} numberOfLines = {2}>{subTitle}</AppText>}
                         </View>
+                        <MaterialCommunityIcons name='chevron-right' size={25} color={colors.medium}/>
                     </View>
                 </TouchableHighlight>
             </Swipeable>
@@ -31,12 +40,14 @@ const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
         padding: 15,
-        backgroundColor: colors.white
+        backgroundColor: colors.white,
+        alignItems: 'center'
     },
 
     detailsContainer: {
         marginLeft: 10,
-        justifyContent: 'center'
+        justifyContent: 'center',
+        flex: 1
     },
 
     image: {
